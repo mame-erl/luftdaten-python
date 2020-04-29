@@ -59,25 +59,6 @@ class Measurement:
         self.humidity    = bme280.read_humidity()
         self.pressure    = bme280.read_pressure()
 
-    def sendInflux(self):
-        cfg = config['influxdb']
-
-        if not cfg['enabled']:
-            return
-
-        data = "feinstaub,node={} SDS_P1={:0.2f},SDS_P2={:0.2f},BME280_temperature={:0.2f},BME280_pressure={:0.2f},BME280_humidity={:0.2f}".format(
-            cfg['node'],
-            self.pm10_value,
-            self.pm25_value,
-            self.temperature,
-            self.pressure,
-            self.humidity,
-        )
-
-        requests.post(cfg['url'],
-            auth=(cfg['username'], cfg['password']),
-            data=data,
-        )
 
     def sendLuftdaten(self):
         if not config['luftdaten']['enabled']:
