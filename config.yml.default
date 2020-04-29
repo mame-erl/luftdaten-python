@@ -1,12 +1,6 @@
 luftdaten:
   enabled: true
+  sensor: esp8266-XXXXXX
 
-  # Override the serial derived from the CPU
-  # sensor: 012345
-
-influxdb:
-  enabled:  false
-  url:      'http://example.com:8086/write?precision=s&db=sensors'
-  username: 'sensors'
-  password: 'secret'
-  node:     'esp8266-123456'
+  # define URL of the Smart Citizen Kit
+  sckurl: https://api.smartcitizen.me/v0/devices/XXXXX
