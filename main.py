@@ -13,7 +13,7 @@ from recursive_json import extract_values
 # goal: load data from Smart Citizen Kit API and transfer to luftdaten.info
 
 # Config
-with open("config.yml", 'r') as ymlfile:
+with open("/home/pi/Dev/luftdaten-python/config.yml", 'r') as ymlfile:
     config = yaml.load(ymlfile)
 
 # Logging
@@ -86,6 +86,6 @@ starttime = time.time()
 while True:
     print("running ...")
     run()
-    time.sleep(60.0 - ((time.time() - starttime) % 60.0))
+    time.sleep(60)
 
 print("Stopped")
