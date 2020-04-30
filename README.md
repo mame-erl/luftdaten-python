@@ -32,12 +32,16 @@ Paste the specified contents - maybe adjust your paths.
 	Description=SCKdaemon
 	Wants=network-online.target
 	After=network-online.target
-
+	StartLimitIntervalSec=500
+	StartLimitBurst=5
+	
 	[Service]
 	User=sckdaemon
 	WorkingDirectoy=/home/pi/Dev/luftdaten-python/
 	ExecStart=/home/pi/Dev/luftdaten-python/main.py
-
+	Restart=on-failure
+	RestartSec=30s
+	
 	[Install]
 	WantedBy=multi-user.target
 
